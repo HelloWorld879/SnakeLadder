@@ -1,3 +1,15 @@
+/* Add this CSS to your existing styles.css file */
+
+.container {
+    max-width: none; /* Remove max-width */
+    width: 100%; /* Set width to 100% */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 textarea,
 input[type="text"],
 button {
