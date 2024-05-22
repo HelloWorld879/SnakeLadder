@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #f7f7f7;
 }
 
 .container {
@@ -16,6 +16,7 @@ body {
 
 h1 {
     text-align: center;
+    color: #333;
 }
 
 .form-group {
@@ -25,9 +26,12 @@ h1 {
 label {
     display: block;
     margin-bottom: 5px;
+    color: #666;
 }
 
-textarea {
+textarea,
+input[type="text"],
+button {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -35,10 +39,13 @@ textarea {
     box-sizing: border-box;
 }
 
+textarea {
+    height: 150px; /* Increase height for better readability */
+}
+
 button {
-    display: block;
-    width: 100%;
-    padding: 10px;
+    display: inline-block;
+    width: auto;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -57,49 +64,6 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
+    color: #333;
     white-space: pre-wrap;
-}
-
-
-
-const apiBaseUrl = 'http://localhost:8080/api';
-
-async function verify() {
-    const template = document.getElementById('template').value;
-    const user = 'default_user'; // Predefined user value
-    const response = await callApi('verify', template, user);
-    displayResponse(response);
-}
-
-async function post() {
-    const template = document.getElementById('template').value;
-    const user = 'default_user'; // Predefined user value
-    const response = await callApi('post', template, user);
-    displayResponse(response);
-}
-
-async function callApi(action, template, user) {
-    const url = `${apiBaseUrl}/${action}?user=${encodeURIComponent(user)}`;
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'text/plain'
-        },
-        body: template
-    };
-    try {
-        const response = await fetch(url, options);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error:', error);
-        return `Error: ${error.message}`;
-    }
-}
-
-function displayResponse(response) {
-    const responseDiv = document.getElementById('response');
-    responseDiv.textContent = JSON.stringify(response, null, 2);
 }
