@@ -1,10 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
-}
-
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -12,6 +5,10 @@ body {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inner-container {
+    width: 100%; /* Expand to full width */
 }
 
 h1 {
@@ -66,4 +63,5 @@ button:hover {
     background-color: #f9f9f9;
     color: #333;
     white-space: pre-wrap;
+    width: 100%; /* Expand to full width */
 }
